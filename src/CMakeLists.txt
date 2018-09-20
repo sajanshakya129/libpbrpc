@@ -38,13 +38,6 @@ if(NOT BUILD_SHARED_LIBS)
 add_definitions(-DPBRPC_BUILT_AS_STATIC)
 endif()
 
-GENERATE_EXPORT_HEADER(pbrpc
-             BASE_NAME         PBRPC
-             EXPORT_MACRO_NAME PBRPC_EXPORT
-             EXPORT_FILE_NAME  pbrpc_export.h
-             STATIC_DEFINE     PBRPC_BUILT_AS_STATIC
-)
-
 target_link_libraries(pbrpc
     pbrpc_proto
 )
