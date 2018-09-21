@@ -12,7 +12,7 @@ file(GLOB proto_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.proto")
 if(PROTOBUF_ROOT)
     set(PROTOBUF_SRC_ROOT_FOLDER   ${PROTOBUF_ROOT})
     set(PROTOBUF_LIBRARY           ${libprotobuf_BINARY_DIR})
-    set(PROTOBUF_PROTOC_EXECUTABLE ${protoc_BINARY_DIR}/protoc)
+    set(PROTOBUF_PROTOC_EXECUTABLE /usr/local/bin/protoc)
     set(PROTOBUF_LIBRARIES
         libprotobuf
     )
