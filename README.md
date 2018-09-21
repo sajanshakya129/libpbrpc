@@ -7,9 +7,8 @@ Libpbrpc is RPC Server implementation using protobuf. It is flexible as it is no
 
 ## Dependencies
 To install libpbrpc on the system you need to install following dependencies first
-### Protocol bufffers library
-Follow the following link and [install protobuf].
-(https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)
+### Protocol buffer library
+Follow the following link and [install protobuf](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)
 Or follow the following steps
 ```$ git clone https://github.com/protocolbuffers/protobuf.git
 $ cd protobuf
