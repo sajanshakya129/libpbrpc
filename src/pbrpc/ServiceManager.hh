@@ -7,7 +7,7 @@
 #include <google/protobuf/service.h>
 #include <google/protobuf/descriptor.h>
 
-#include "pbrpc.pb.h"
+#include <pbrpc/pbrpc.pb.h>
 
 #include "ServiceRPC.hh"
 #include "MethodRPC.hh"
