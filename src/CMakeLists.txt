@@ -12,6 +12,7 @@ include_directories(
     ${PROTOBUF_ROOT}/src
     ${pbrpc_proto_BINARY_DIR}
     ${pbrpc_BINARY_DIR}
+    /usr/local/include/pbrpc
 )
 
 link_directories(
