@@ -1,10 +1,32 @@
-# libpbrpc
+# Libpbrpc Library
+This project was forked from https://github.com/madwyn/libpbrpc project. Minor problems were fixed to make it working and installable.
+
 The aim is to build a minimal protobuf RPC lib using [Google's Protocol Buffers](https://code.google.com/p/protobuf).
 
-libpbrpc is flexible as it is not bound to the http server, it's a lightweight middleware.
+Libpbrpc is RPC Server implementation using protobuf. It is flexible as it is not bound to the http server, it's a lightweight middleware.
 
-# Dependencies
-The only dependency is [Protocol Buffers](https://github.com/google/protobuf).
+## Dependencies
+To install libpbrpc on the system you need to install following dependencies first
+###Protocol bufffers library
+Follow the following link and [install protobuf].
+(https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)
+Or follow the following steps
+```$ git clone https://github.com/protocolbuffers/protobuf.git
+$ cd protobuf
+$ git submodule update --init --recursive
+$ ./autogen.sh
+
+$ ./configure
+$ make
+$ make check
+$ sudo make install
+$ sudo ldconfig # refresh shared library cache.
+```
+
+###Cmake (only if cmake is not installed in your system)
+To install cmake
+	sudo apt-get install cmake
+
 
 # How to use
 To use this lib is really simple. First define `ServiceManager` some where in your code.
@@ -34,7 +56,8 @@ The over all design is really simple:
 - `Method`s. Each `Method` should have input(`params`) and output(`results`).
 
 # Examples
-Please take a look of my other repository [pbrpc](https://github.com/madwyn/pbrpc) as a demo which implements a simple RPC server.
+Please take a look at other forked repository https://github.com/sajanshakya129/pbrpc from origininal repo [pbrpc](https://github.com/madwyn/pbrpc) as a demo which implements a simple RPC server.
+Few build problems has been solved to make it run.
 
 # Limitations
 One major limitation of this library is it's synchronous. It is possible to adapt task queue for asynchronous message handling. 
