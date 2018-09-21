@@ -3,7 +3,7 @@ This project was forked from https://github.com/madwyn/libpbrpc project. Minor p
 
 The aim is to build a minimal protobuf RPC lib using [Google's Protocol Buffers](https://code.google.com/p/protobuf).
 
-Libpbrpc is RPC Server implementation using protobuf. It is flexible as it is not bound to the http server, it's a lightweight middleware.
+Libpbrpc is Remote Procedure Call (RPC) using protobuf. It is flexible as it is not bound to the http server, it's a lightweight middleware.
 
 ## Dependencies
 To install libpbrpc on the system you need to install following dependencies first
