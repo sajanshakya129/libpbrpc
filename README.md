@@ -10,7 +10,8 @@ To install libpbrpc on the system you need to install following dependencies fir
 ### Protocol buffer library
 Follow the following link and [install protobuf](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)
 Or follow the following steps
-```$ git clone https://github.com/protocolbuffers/protobuf.git
+```
+$ git clone https://github.com/protocolbuffers/protobuf.git
 $ cd protobuf
 $ git submodule update --init --recursive
 $ ./autogen.sh

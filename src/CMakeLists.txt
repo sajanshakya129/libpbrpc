@@ -31,6 +31,7 @@ set(pbrpc_HDRS
     pbrpc/MethodRPC.hh
     pbrpc/ServiceManager.hh
     pbrpc/ServiceRPC.hh
+    pbrpc/pbrpc.pb.h
 )
 
 add_library(pbrpc ${pbrpc_SRCS})
