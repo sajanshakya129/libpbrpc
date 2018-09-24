@@ -3,7 +3,11 @@
 
 #include <string>
 #include <google/protobuf/service.h>
+<<<<<<< HEAD
 #include "pbrpc.pb.h"
+=======
+#include <pbrpc.pb.h>
+>>>>>>> c038346690935f0cd94e0b329fa8bc7a9ea7661e
 
 
 namespace pbrpc {
