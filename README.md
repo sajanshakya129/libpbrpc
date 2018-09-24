@@ -28,6 +28,19 @@ To install cmake
 	sudo apt-get install cmake
 
 
+## Install library
+###  Install proto files
+```
+./install/sh
+```
+
+### Install library
+```
+mkdir build && cd build
+cmake ..
+make
+sudo make install
+```
 # How to use
 To use this lib is really simple. First define `ServiceManager` some where in your code.
 ```c
