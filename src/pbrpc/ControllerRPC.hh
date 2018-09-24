@@ -3,7 +3,7 @@
 
 #include <string>
 #include <google/protobuf/service.h>
-#include <pbrpc.pb.h>
+#include <pbprc/pbrpc.pb.h>
 
 
 namespace pbrpc {
