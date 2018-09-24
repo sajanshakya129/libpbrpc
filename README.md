@@ -31,10 +31,10 @@ To install cmake
 ## Install library
 ###  Install proto files
 ```
-./install/sh
+./install.sh
 ```
 
-### Install library
+### Install libpbrpc engine
 ```
 mkdir build && cd build
 cmake ..
