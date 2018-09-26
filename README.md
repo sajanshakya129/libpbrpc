@@ -29,6 +29,10 @@ To install cmake
 
 
 ## Install library
+```
+git clone https://github.com/sajanshakya129/libpbrpc.git
+cd libpbrpc
+```
 ###  Install proto files
 ```
 ./install/sh
