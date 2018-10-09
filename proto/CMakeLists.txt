@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 2.8.4)
 
 project(pbrpc_proto)
 
-
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # The .proto source files
@@ -13,43 +12,26 @@ if(PROTOBUF_ROOT)
     set(PROTOBUF_SRC_ROOT_FOLDER   ${PROTOBUF_ROOT})
     set(PROTOBUF_LIBRARY           ${libprotobuf_BINARY_DIR})
     set(PROTOBUF_PROTOC_EXECUTABLE ${protoc_BINARY_DIR}/protoc)
-    set(PROTOBUF_LIBRARIES
-        libprotobuf
-    )
+    set(PROTOBUF_LIBRARIES libprotobuf)
     link_directories(${libprotobuf_BINARY_DIR})
-endif()
 
 find_package(Protobuf REQUIRED)
-
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 
 # Generate the proto message files
-PROTOBUF_GENERATE_CPP(
-    proto_SRCS
-    proto_HDRS
-    ${proto_FILES}
-)
+PROTOBUF_GENERATE_CPP(proto_SRCS proto_HDRS ${proto_FILES})
 
 set_source_files_properties(${proto_FILES} PROPERTIES GENERATED TRUE)
 
 # Build library, link as static
-add_library(pbrpc_proto
-    STATIC
-    ${proto_SRCS}
-)
+add_library(pbrpc_proto STATIC ${proto_SRCS})
+add_dependencies(pbrpc_proto protoc)
+target_link_libraries(pbrpc_proto protobuf)
 
-target_link_libraries(pbrpc_proto
-    protobuf
-)
-
-set(INS_INCLUDE_DIR
-    "/pbrpc"
-)
+set(INS_INCLUDE_DIR "/pbrpc")
 
 # Install
-set(INS_TARGETS
-    pbrpc_proto
-)
+set(INS_TARGETS pbrpc_proto)
 
 # Install
 install(TARGETS ${INS_TARGETS}
