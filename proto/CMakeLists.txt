@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 2.8.4)
 
 project(pbrpc_proto)
 
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-
 # The .proto source files
 file(GLOB proto_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.proto")
 
@@ -14,6 +12,7 @@ if(PROTOBUF_ROOT)
     set(PROTOBUF_PROTOC_EXECUTABLE ${protoc_BINARY_DIR}/protoc)
     set(PROTOBUF_LIBRARIES libprotobuf)
     link_directories(${libprotobuf_BINARY_DIR})
+endif()
 
 find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
@@ -25,7 +24,6 @@ set_source_files_properties(${proto_FILES} PROPERTIES GENERATED TRUE)
 
 # Build library, link as static
 add_library(pbrpc_proto STATIC ${proto_SRCS})
-add_dependencies(pbrpc_proto protoc)
 target_link_libraries(pbrpc_proto protobuf)
 
 set(INS_INCLUDE_DIR "/pbrpc")

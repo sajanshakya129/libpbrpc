@@ -33,15 +33,12 @@ set(pbrpc_HDRS
 )
 
 add_library(pbrpc ${pbrpc_SRCS})
-
-generate_export_header(pbrpc
-                        BASE_NAME PBRPC
-                        EXPORT_MACRO_NAME PBRPC_EXPORT
-                        EXPORT_FILE_NAME pbrpc_export.h
-                        STATIC_DEFINE PBRPC_BUILT_AS_STATIC
-                        )
+add_dependencies(pbrpc pbrpc_proto)
 
 target_link_libraries(pbrpc pbrpc_proto)
+
+GENERATE_EXPORT_HEADER(pbrpc)
+
 
 set(INS_INCLUDE_DIR
     "/pbrpc"
@@ -57,10 +54,9 @@ install(TARGETS ${INS_TARGETS}
     LIBRARY DESTINATION lib COMPONENT libraries
     ARCHIVE DESTINATION lib COMPONENT libraries
 )
-
 install(FILES 
-        ${PROJECT_BINARY_DIR)/pbrpc_export.h
-        ${pbrpc_HDRS} DESTINATION "include${INS_INCLUDE_DIR}" COMPONENT headers)
+        ${pbrpc_HDRS}
+        ${PROJECT_BINARY_DIR}/pbrpc_export.h DESTINATION "include${INS_INCLUDE_DIR}" COMPONENT headers)
 
 
 

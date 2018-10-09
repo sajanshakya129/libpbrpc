@@ -7,9 +7,9 @@
 #include <google/protobuf/service.h>
 #include <google/protobuf/descriptor.h>
 
-#include <pbrpc/pbrpc.pb.h>
-#include <pbrpc/pbrpc_export.h>
+#include "pbrpc.pb.h"
 
+#include "pbrpc_export.h"
 #include "ServiceRPC.hh"
 #include "MethodRPC.hh"
 #include "ControllerRPC.hh"
@@ -22,7 +22,7 @@ using ::std::map;
 using ::google::protobuf::Service;
 using ::google::protobuf::RpcController;
 
-class PBPRC_EXPORT ServiceManager {
+class PBRPC_EXPORT ServiceManager {
 public:
     ServiceManager();
     virtual ~ServiceManager();
