@@ -1,18 +1,18 @@
 cmake_minimum_required(VERSION 2.8.4)
 
 project(pbrpc)
-
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
 
 include(FindProtobuf)
 find_package(Protobuf REQUIRED)
 
 include_directories(
+    ${PROTOBUF_INCLUDE_DIRS}
     ${PROTOBUF_ROOT}/src
     ${pbrpc_proto_BINARY_DIR}
     ${pbrpc_BINARY_DIR}
 )
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 link_directories(
     ${libprotobuf_BINARY_DIR}
@@ -32,10 +32,10 @@ set(pbrpc_HDRS
     pbrpc/ServiceRPC.hh
 )
 
-add_library(pbrpc ${pbrpc_SRCS})
-add_dependencies(pbrpc pbrpc_proto)
+add_library(pbrpc STATIC ${pbrpc_SRCS})
 
-target_link_libraries(pbrpc pbrpc_proto)
+add_dependencies(pbrpc pbrpc_proto)
+target_link_libraries(pbrpc pbrpc_proto ${PROTOBUF_LIBRARY})
 
 GENERATE_EXPORT_HEADER(pbrpc)
 
@@ -55,7 +55,7 @@ install(TARGETS ${INS_TARGETS}
     ARCHIVE DESTINATION lib COMPONENT libraries
 )
 install(FILES 
-        ${pbrpc_HDRS}
+        ${pbrpc_HDRS} ${proto_HDRS}
         ${PROJECT_BINARY_DIR}/pbrpc_export.h DESTINATION "include${INS_INCLUDE_DIR}" COMPONENT headers)
 
 
